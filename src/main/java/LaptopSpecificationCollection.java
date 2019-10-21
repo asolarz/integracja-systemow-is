@@ -3,10 +3,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.Getter;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 @Getter
@@ -49,6 +46,7 @@ class LaptopSpecificationCollection {
                     .build();
             laptopSpecificationList.add(pc);
         }
-
     }
+
+
 }

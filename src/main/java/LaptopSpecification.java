@@ -1,27 +1,49 @@
 import javafx.beans.property.SimpleStringProperty;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 @Builder
 @Getter
+@Setter
 public class LaptopSpecification {
-   String name;
-   String displaySize;
-   String resolution;
-   String screenType;
-   String touchpad;
-   String cpu;
-   String cores;
-   String freq;
-   String ram;
-   String space;
-   String discType;
-   String gpu;
-   String gpuRam;
-   String os;
-   String dvd;
+    String name;
+    String displaySize;
+    String resolution;
+    String screenType;
+    String touchpad;
+    String cpu;
+    String cores;
+    String freq;
+    String ram;
+    String space;
+    String discType;
+    String gpu;
+    String gpuRam;
+    String os;
+    String dvd;
 
-   /* @Override
+
+    String toSemiColonSeparatedSpec() {
+        return name + ";" +
+                displaySize + ";" +
+                resolution + ";" +
+                screenType + ";" +
+                touchpad + ";" +
+                cpu + ";" +
+                cores + ";" +
+                freq + ";" +
+                ram + ";" +
+                space + ";" +
+                discType + ";" +
+                gpu + ";" +
+                gpuRam + ";" +
+                os + ";" +
+                dvd + ";\n"
+                ;
+    }
+
+   @Override
     public String toString() {
         return
                 name +"\t"+"\t"+
@@ -39,5 +61,5 @@ public class LaptopSpecification {
         gpuRam +"\t"+"\t"+
         os +"\t"+"\t"+
         dvd +"\t";
-    }*/
+    }
 }

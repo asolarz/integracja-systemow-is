@@ -1,5 +1,6 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -44,7 +45,6 @@ public class LaptopController implements Initializable {
     private TableColumn<LaptopSpecification, String> os;
     @FXML
     private TableColumn<LaptopSpecification, String> dvd;
-
 
 
     @Override
@@ -95,5 +95,93 @@ public class LaptopController implements Initializable {
         LaptopSpecificationCollection laptopSpecificationCollection = new LaptopSpecificationCollection();
         laptopSpecificationCollection.readFromFile("katalog.txt");
         return laptopSpecificationCollection.getLaptopSpecificationList();
+    }
+
+    public void exportToFile(ActionEvent actionEvent) {
+        ObservableList<LaptopSpecification> specifications = tableView.getItems();
+        String s = specifications
+                .stream()
+                .map(LaptopSpecification::toSemiColonSeparatedSpec).reduce("", String::concat);
+        FileWriter.exportToFile(s);
+    }
+
+
+    public void editCommitName(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setName(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitDisplaySize(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setDisplaySize(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitResolution(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setResolution(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitScreenType(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setScreenType(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitTouchpad(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setTouchpad(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitCpu(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setCpu(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitCores(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setCores(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitFreq(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setFreq(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitRam(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setRam(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitDiscType(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setDiscType(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitSpace(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setSpace(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitGpu(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setGpu(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitGpuRam(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setGpuRam(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitOs(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setOs(laptopSpecificationStringCellEditEvent.getNewValue());
+    }
+
+    public void editCommitDvd(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
+        LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
+        selectedItem.setDvd(laptopSpecificationStringCellEditEvent.getNewValue());
     }
 }

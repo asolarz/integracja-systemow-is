@@ -12,25 +12,26 @@
          <children>
               <TableView fx:id="tableView" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1366.0">
                   <columns>
-                      <TableColumn id="name" fx:id="name" prefWidth="85.0" text="nazwa" />
-                      <TableColumn fx:id="displaySize" prefWidth="85.0" text="cale" />
-                      <TableColumn fx:id="resolution" prefWidth="85.0" text="rozdzielczosc" />
-                      <TableColumn fx:id="screenType" prefWidth="85.0" text="typ" />
-                      <TableColumn fx:id="touchpad" prefWidth="85.0" text="wifi" />
-                      <TableColumn fx:id="cpu" prefWidth="85.0" text="cpu" />
-                      <TableColumn fx:id="cores" prefWidth="85.0" text="rdzenie" />
-                      <TableColumn fx:id="freq" prefWidth="85.0" text="czestotliwosc" />
-                      <TableColumn fx:id="ram" prefWidth="85.0" text="ram" />
-                      <TableColumn fx:id="space" prefWidth="85.0" text="rozmiar dysku" />
-                      <TableColumn fx:id="discType" prefWidth="85.0" text="dysk" />
-                      <TableColumn fx:id="gpu" prefWidth="85.0" text="gpu" />
-                      <TableColumn fx:id="gpuRam" prefWidth="87.0" text="VRAM" />
-                      <TableColumn fx:id="os" prefWidth="85.0" text="os" />
-                      <TableColumn fx:id="dvd" prefWidth="85.0" text="dvd" />
+                      <TableColumn onEditCommit="#editCommitName" id="name" fx:id="name" prefWidth="85.0" text="nazwa" />
+                      <TableColumn onEditCommit="#editCommitDisplaySize" fx:id="displaySize" prefWidth="85.0" text="cale" />
+                      <TableColumn onEditCommit="#editCommitResolution" fx:id="resolution" prefWidth="85.0" text="rozdzielczosc" />
+                      <TableColumn onEditCommit="#editCommitScreenType" fx:id="screenType" prefWidth="85.0" text="typ" />
+                      <TableColumn onEditCommit="#editCommitTouchpad" fx:id="touchpad" prefWidth="85.0" text="wifi" />
+                      <TableColumn onEditCommit="#editCommitCpu" fx:id="cpu" prefWidth="85.0" text="cpu" />
+                      <TableColumn onEditCommit="#editCommitCores" fx:id="cores" prefWidth="85.0" text="rdzenie" />
+                      <TableColumn onEditCommit="#editCommitFreq" fx:id="freq" prefWidth="85.0" text="czestotliwosc" />
+                      <TableColumn onEditCommit="#editCommitRam" fx:id="ram" prefWidth="85.0" text="ram" />
+                      <TableColumn onEditCommit="#editCommitSpace" fx:id="space" prefWidth="85.0" text="rozmiar dysku" />
+                      <TableColumn onEditCommit="#editCommitDiscType" fx:id="discType" prefWidth="85.0" text="dysk" />
+                      <TableColumn onEditCommit="#editCommitGpu" fx:id="gpu" prefWidth="85.0" text="gpu" />
+                      <TableColumn onEditCommit="#editCommitGpuRam" fx:id="gpuRam" prefWidth="87.0" text="VRAM" />
+                      <TableColumn onEditCommit="#editCommitOs" fx:id="os" prefWidth="85.0" text="os" />
+                      <TableColumn onEditCommit="#editCommitDvd" fx:id="dvd" prefWidth="85.0" text="dvd" />
                   </columns>
               </TableView>
          </children>
       </FlowPane>
-      <Button layoutX="200.0" layoutY="500.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="saveToFile" layoutX="200.0" layoutY="500.0" onAction="#exportToFile" mnemonicParsing="false" text="Zapisz" />
+      <Button layoutX="36.0" layoutY="500.0" mnemonicParsing="false" text="Wczytaj" />
     </children>
 </Pane>
