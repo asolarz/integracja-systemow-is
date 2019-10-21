@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LaptopController">
+    <children>
+      <FlowPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+              <TableView fx:id="tableView" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1366.0">
+                  <columns>
+                      <TableColumn id="name" fx:id="name" prefWidth="85.0" text="nazwa" />
+                      <TableColumn fx:id="displaySize" prefWidth="85.0" text="cale" />
+                      <TableColumn fx:id="resolution" prefWidth="85.0" text="rozdzielczosc" />
+                      <TableColumn fx:id="screenType" prefWidth="85.0" text="typ" />
+                      <TableColumn fx:id="touchpad" prefWidth="85.0" text="wifi" />
+                      <TableColumn fx:id="cpu" prefWidth="85.0" text="cpu" />
+                      <TableColumn fx:id="cores" prefWidth="85.0" text="rdzenie" />
+                      <TableColumn fx:id="freq" prefWidth="85.0" text="czestotliwosc" />
+                      <TableColumn fx:id="ram" prefWidth="85.0" text="ram" />
+                      <TableColumn fx:id="space" prefWidth="85.0" text="rozmiar dysku" />
+                      <TableColumn fx:id="discType" prefWidth="85.0" text="dysk" />
+                      <TableColumn fx:id="gpu" prefWidth="85.0" text="gpu" />
+                      <TableColumn fx:id="gpuRam" prefWidth="87.0" text="VRAM" />
+                      <TableColumn fx:id="os" prefWidth="85.0" text="os" />
+                      <TableColumn fx:id="dvd" prefWidth="85.0" text="dvd" />
+                  </columns>
+              </TableView>
+         </children>
+      </FlowPane>
+      <Button layoutX="200.0" layoutY="500.0" mnemonicParsing="false" text="Button" />
+    </children>
+</Pane>
