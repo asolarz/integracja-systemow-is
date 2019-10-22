@@ -106,6 +106,11 @@ public class LaptopController implements Initializable {
     }
 
 
+    public void readFromFile(ActionEvent actionEvent) {
+    initialize(null,null);
+    }
+
+
     public void editCommitName(TableColumn.CellEditEvent<LaptopSpecification, String> laptopSpecificationStringCellEditEvent) {
         LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
         selectedItem.setName(laptopSpecificationStringCellEditEvent.getNewValue());
@@ -184,4 +189,5 @@ public class LaptopController implements Initializable {
         LaptopSpecification selectedItem = tableView.getSelectionModel().getSelectedItem();
         selectedItem.setDvd(laptopSpecificationStringCellEditEvent.getNewValue());
     }
+
 }

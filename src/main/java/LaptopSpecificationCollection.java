@@ -22,7 +22,8 @@ class LaptopSpecificationCollection {
     }
 
     void readFromFile(String filename) throws IOException {
-        InputStream inputStream = LaptopSpecificationCollection.class.getResourceAsStream(filename);
+//        InputStream inputStream = LaptopSpecificationCollection.class.getResourceAsStream(filename);
+        InputStream inputStream = new FileInputStream(new File(filename));
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
         while ((line = bufferedReader.readLine()) != null) {
