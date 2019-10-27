@@ -1,11 +1,12 @@
-import javafx.beans.property.SimpleStringProperty;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+package is;
+
+import lombok.*;
 
 @Builder
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class LaptopSpecification {
     String name;
     String displaySize;
@@ -61,5 +62,26 @@ public class LaptopSpecification {
         gpuRam +"\t"+"\t"+
         os +"\t"+"\t"+
         dvd +"\t";
+    }
+
+
+    public static LaptopSpecification getLaptopSpecification(String[] split) {
+        return LaptopSpecification.builder()
+                .name((split[0]))
+                .displaySize((split[1]))
+                .resolution((split[2]))
+                .screenType((split[3]))
+                .touchpad((split[4]))
+                .cpu((split[5]))
+                .cores((split[6]))
+                .freq((split[7]))
+                .ram((split[8]))
+                .space((split[9]))
+                .discType((split[10]))
+                .gpu((split[11]))
+                .gpuRam((split[12]))
+                .os((split[13]))
+                .dvd((split[14]))
+                .build();
     }
 }
