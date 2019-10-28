@@ -2,12 +2,18 @@ package is;
 
 import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class LaptopSpecification {
+    @Id
+    Long id;
     String name;
     String displaySize;
     String resolution;
@@ -44,24 +50,24 @@ public class LaptopSpecification {
                 ;
     }
 
-   @Override
+    @Override
     public String toString() {
         return
-                name +"\t"+"\t"+
-        displaySize +"\t"+"\t"+
-        resolution +"\t"+"\t"+
-        screenType +"\t"+"\t"+
-        touchpad +"\t"+"\t"+
-        cpu +"\t"+"\t"+
-        cores +"\t"+"\t"+
-        freq +"\t"+"\t"+
-        ram +"\t"+"\t"+
-        space +"\t"+"\t"+
-        discType +"\t"+"\t"+
-        gpu +"\t"+"\t"+
-        gpuRam +"\t"+"\t"+
-        os +"\t"+"\t"+
-        dvd +"\t";
+                name + "\t" + "\t" +
+                        displaySize + "\t" + "\t" +
+                        resolution + "\t" + "\t" +
+                        screenType + "\t" + "\t" +
+                        touchpad + "\t" + "\t" +
+                        cpu + "\t" + "\t" +
+                        cores + "\t" + "\t" +
+                        freq + "\t" + "\t" +
+                        ram + "\t" + "\t" +
+                        space + "\t" + "\t" +
+                        discType + "\t" + "\t" +
+                        gpu + "\t" + "\t" +
+                        gpuRam + "\t" + "\t" +
+                        os + "\t" + "\t" +
+                        dvd + "\t";
     }
 
 

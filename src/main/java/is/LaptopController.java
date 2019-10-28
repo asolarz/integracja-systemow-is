@@ -1,6 +1,7 @@
 package is;
 
 
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -10,28 +11,26 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/laptops")
+@AllArgsConstructor
 public class LaptopController {
 
-    @GetMapping
-    List<LaptopSpecification> list() throws IOException {
-        LaptopSpecificationCollection laptopSpecificationCollection = new LaptopSpecificationCollection();
-        laptopSpecificationCollection.readFromFile("katalog.txt");
-        return laptopSpecificationCollection.getLaptopSpecificationList();
+    private final LaptopSpecificationService laptopSpecificationService;
+
+    @GetMapping("/file")
+    List<LaptopSpecification> fileList() throws IOException {
+        return laptopSpecificationService.fileList();
+    }
+
+    @GetMapping("/database")
+    List<LaptopSpecification> databaseList() {
+        return laptopSpecificationService.databaseList();
+
     }
 
     @PostMapping
-    void save(@RequestBody List<String[]> laptopSpecifications) {
+    void saveToFile(@RequestBody List<String[]> laptopSpecifications) {
 
-        List<LaptopSpecification> specifications = new ArrayList<>();
-        for (String[] line : laptopSpecifications
-        ) {
-            LaptopSpecification pc = LaptopSpecification.getLaptopSpecification(line);
-            specifications.add(pc);
-        }
-        FileWriter.exportToFile(specifications
-                .stream()
-                .map(LaptopSpecification::toSemiColonSeparatedSpec)
-                .collect(Collectors.joining("")));
+       laptopSpecificationService.saveToFile(laptopSpecifications);
 
     }
 
