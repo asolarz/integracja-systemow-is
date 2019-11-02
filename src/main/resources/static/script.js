@@ -5,12 +5,16 @@ function readFromFile() {
 function specificationTable(laptopSpecificationList) {
 
     $('#laptop-spec').remove();
-    var text = "<table id='laptop-spec' class='table'><thead> <th scope='col'>Producent</th> <th scope='col'>Przekątna</th> <th scope='col'>Rozdzielczość</th> <th scope='col'>Typ matrycy</th> <th scope='col'>Touchpad</th> <th scope='col'>Procesor</th> <th scope='col'>Rdzenie</th> <th scope='col'>Taktowanie</th> <th scope='col'>RAM</th> <th scope='col'>Rozmiar dysku</th>  <th scope='col'>Typ dysku</th>  <th scope='col'>Karta graficzna</th>  <th scope='col'>VRAM</th>  <th scope='col'>System operacyjny</th> <th scope='col'>DVD</th> </thead><tbody class='table-data' )";
+    var text = "<table id='laptop-spec' class='table'><thead><th class='d-none' scope='col'>Id</th> <th scope='col'>Producent</th> <th scope='col'>Przekątna</th> <th scope='col'>Rozdzielczość</th> <th scope='col'>Typ matrycy</th> <th scope='col'>Touchpad</th> <th scope='col'>Procesor</th> <th scope='col'>Rdzenie</th> <th scope='col'>Taktowanie</th> <th scope='col'>RAM</th> <th scope='col'>Rozmiar dysku</th>  <th scope='col'>Typ dysku</th>  <th scope='col'>Karta graficzna</th>  <th scope='col'>VRAM</th>  <th scope='col'>System operacyjny</th> <th scope='col'>DVD</th> </thead><tbody class='table-data' )";
     for (var index in laptopSpecificationList) {
         var currentSpec = laptopSpecificationList[index];
         text += "<tr>";
+        console.log(currentSpec);
         for (var propIndex in currentSpec) {
-            if (propIndex == 'id') continue;
+            if (propIndex == 'id') {
+                text += "<td class='d-none'>" + currentSpec[propIndex] + "</td>";
+                continue;
+            }
             if (currentSpec[propIndex] == null) {
                 text += "<td contenteditable='true'>" + "brak" + "</td>";
             } else {
@@ -24,7 +28,38 @@ function specificationTable(laptopSpecificationList) {
     $("body").append(text);
 }
 
+
 function saveToFile() {
+
+    var data = JSON.stringify(readTable());
+    $.ajax({
+        type: "POST",
+        url: "http://" + window.location.host +
+            "/laptops/file",
+        data: data,
+        dataType: "json",
+        contentType: "application/json"
+    });
+}
+
+function saveToDatabase() {
+    console.log("save DB")
+    var data = JSON.stringify(readTable());
+    $.ajax({
+        type: "POST",
+        url: "http://" + window.location.host +
+            "/laptops/database",
+        data: data,
+        dataType: "json",
+        contentType: "application/json"
+    });
+}
+
+function readFromDatabase() {
+    $.get("http://" + window.location.host + "/laptops/database", specificationTable);
+}
+
+function readTable() {
 
     var laptop = [];
     var laptopArray = [];
@@ -36,20 +71,9 @@ function saveToFile() {
         }
         laptopArray.push(laptop);
         laptop = [];
+
     }
+    console.log(laptop);
+    return laptopArray;
 
-
-    var data = JSON.stringify(laptopArray);
-    $.ajax({
-        type: "POST",
-        url: "http://" + window.location.host +
-            "/laptops",
-        data: data,
-        dataType: "json",
-        contentType: "application/json"
-    });
-}
-
-function readFromDatabase() {
-    $.get("http://" + window.location.host + "/laptops/database", specificationTable);
 }

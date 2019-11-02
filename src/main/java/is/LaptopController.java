@@ -27,11 +27,13 @@ public class LaptopController {
 
     }
 
-    @PostMapping
+    @PostMapping("/file")
     void saveToFile(@RequestBody List<String[]> laptopSpecifications) {
-
        laptopSpecificationService.saveToFile(laptopSpecifications);
-
+    }
+    @PostMapping("/database")
+    void saveToDatabase(@RequestBody List<String[]> laptopSpecifications) {
+       laptopSpecificationService.saveToDatabase(laptopSpecifications);
     }
 
 }

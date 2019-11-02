@@ -3,6 +3,8 @@ package is;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Builder
@@ -13,6 +15,7 @@ import javax.persistence.Id;
 @Entity
 public class LaptopSpecification {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String name;
     String displaySize;
@@ -73,21 +76,22 @@ public class LaptopSpecification {
 
     public static LaptopSpecification getLaptopSpecification(String[] split) {
         return LaptopSpecification.builder()
-                .name((split[0]))
-                .displaySize((split[1]))
-                .resolution((split[2]))
-                .screenType((split[3]))
-                .touchpad((split[4]))
-                .cpu((split[5]))
-                .cores((split[6]))
-                .freq((split[7]))
-                .ram((split[8]))
-                .space((split[9]))
-                .discType((split[10]))
-                .gpu((split[11]))
-                .gpuRam((split[12]))
-                .os((split[13]))
-                .dvd((split[14]))
+                .id(Long.valueOf((split[0])))
+                .name((split[1]))
+                .displaySize((split[2]))
+                .resolution((split[3]))
+                .screenType((split[4]))
+                .touchpad((split[5]))
+                .cpu((split[6]))
+                .cores((split[7]))
+                .freq((split[8]))
+                .ram((split[9]))
+                .space((split[10]))
+                .discType((split[11]))
+                .gpu((split[12]))
+                .gpuRam((split[13]))
+                .os((split[14]))
+                .dvd((split[15]))
                 .build();
     }
 }
