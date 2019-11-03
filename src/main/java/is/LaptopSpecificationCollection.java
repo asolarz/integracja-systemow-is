@@ -1,6 +1,5 @@
 package is;
 
-import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -8,6 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @XmlRootElement(name = "Laptops")
@@ -43,9 +43,11 @@ class LaptopSpecificationCollection {
         }
     }
 
-    void toXml() throws JAXBException {
-
-
+    List<LaptopSpecificationResponse> toResponse() {
+        return laptopSpecificationList
+                .stream()
+                .map(ls -> ls.toResponse())
+                .collect(Collectors.toList());
     }
 
     public List<LaptopSpecification> getLaptopSpecificationList() {

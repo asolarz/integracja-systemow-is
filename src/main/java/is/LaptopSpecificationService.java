@@ -19,14 +19,17 @@ class LaptopSpecificationService {
     private final LaptopSpecificationRepository laptopSpecificationRepository;
 
 
-    List<LaptopSpecification> databaseList() {
-        return laptopSpecificationRepository.findAllByOrderByIdAsc();
+    List<LaptopSpecificationResponse> databaseList() {
+        return new LaptopSpecificationCollection(laptopSpecificationRepository
+                .findAllByOrderByIdAsc())
+                .toResponse();
+
     }
 
-    List<LaptopSpecification> fileList() throws IOException {
+    List<LaptopSpecificationResponse> fileList() throws IOException {
         LaptopSpecificationCollection laptopSpecificationCollection = new LaptopSpecificationCollection();
         laptopSpecificationCollection.readFromFile("katalog.txt");
-        return laptopSpecificationCollection.getLaptopSpecificationList();
+        return laptopSpecificationCollection.toResponse();
     }
 
     void saveToFile(List<String[]> laptopSpecifications) {

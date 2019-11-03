@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Laptops>
+    <Laptop id="1">
+        <name>Dell</name>
+        <screen>
+            <displaySize>12"</displaySize>
+            <resolution></resolution>
+            <screenType>matowa</screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i7</cpu>
+            <freq>2800</freq>
+        </processor>
+        <ram>8GB</ram>
+        <space>240GB</space>
+        <discType>SSD</discType>
+        <gpu>intel HD Graphics 4000</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os>Windows 7 Home</os>
+        <dvd></dvd>
+    </Laptop>
+    <Laptop id="2">
+        <name>Asus</name>
+        <screen>
+            <displaySize>14"</displaySize>
+            <resolution>1600x900</resolution>
+            <screenType>matowa</screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i5</cpu>
+            <freq></freq>
+        </processor>
+        <ram>16GB</ram>
+        <space>120GB</space>
+        <discType>SSD</discType>
+        <gpu>intel HD Graphics 5000</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os></os>
+        <dvd>brak</dvd>
+    </Laptop>
+    <Laptop id="3">
+        <name>Fujitsu</name>
+        <screen>
+            <displaySize>14"</displaySize>
+            <resolution>1920x1080</resolution>
+            <screenType>blyszczaca</screenType>
+        </screen>
+        <touchpad>tak</touchpad>
+        <processor>
+            <cores>8</cores>
+            <cpu>intel i7</cpu>
+            <freq>1900</freq>
+        </processor>
+        <ram>24GB</ram>
+        <space>500GB</space>
+        <discType>HDD</discType>
+        <gpu>intel HD Graphics 520</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os>brak systemu</os>
+        <dvd>Blu-Ray</dvd>
+    </Laptop>
+    <Laptop id="4">
+        <name>Huawei</name>
+        <screen>
+            <displaySize>13"</displaySize>
+            <resolution></resolution>
+            <screenType>matowa</screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i7</cpu>
+            <freq>2400</freq>
+        </processor>
+        <ram>12GB</ram>
+        <space>24GB</space>
+        <discType>HDD</discType>
+        <gpu>NVIDIA GeForce GTX 1050</gpu>
+        <gpuRam></gpuRam>
+        <os></os>
+        <dvd>brak</dvd>
+    </Laptop>
+    <Laptop id="5">
+        <name>MSI</name>
+        <screen>
+            <displaySize>17"</displaySize>
+            <resolution>1600x900</resolution>
+            <screenType>blyszczaca</screenType>
+        </screen>
+        <touchpad>tak</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i7</cpu>
+            <freq>3300</freq>
+        </processor>
+        <ram>8GB</ram>
+        <space>60GB</space>
+        <discType>SSD</discType>
+        <gpu>AMD Radeon Pro 455</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os>Windows 8.1 Profesional</os>
+        <dvd>DVD</dvd>
+    </Laptop>
+    <Laptop id="6">
+        <name>Dell</name>
+        <screen>
+            <displaySize></displaySize>
+            <resolution>1280x800</resolution>
+            <screenType>matowa</screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i7</cpu>
+            <freq>2800</freq>
+        </processor>
+        <ram>8GB</ram>
+        <space>240GB</space>
+        <discType>SSD</discType>
+        <gpu></gpu>
+        <gpuRam></gpuRam>
+        <os>Windows 7 Home</os>
+        <dvd>brak</dvd>
+    </Laptop>
+    <Laptop id="7">
+        <name>Asus</name>
+        <screen>
+            <displaySize>14"</displaySize>
+            <resolution>1600x900</resolution>
+            <screenType>matowa</screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i5</cpu>
+            <freq>2800</freq>
+        </processor>
+        <ram></ram>
+        <space>120GB</space>
+        <discType>SSD</discType>
+        <gpu>intel HD Graphics 5000</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os>Windows 10 Home</os>
+        <dvd></dvd>
+    </Laptop>
+    <Laptop id="8">
+        <name>Fujitsu</name>
+        <screen>
+            <displaySize>15"</displaySize>
+            <resolution>1920x1080</resolution>
+            <screenType>blyszczaca</screenType>
+        </screen>
+        <touchpad>tak</touchpad>
+        <processor>
+            <cores>8</cores>
+            <cpu>intel i7</cpu>
+            <freq>2800</freq>
+        </processor>
+        <ram>24GB</ram>
+        <space>500GB</space>
+        <discType>HDD</discType>
+        <gpu>intel HD Graphics 520</gpu>
+        <gpuRam></gpuRam>
+        <os>brak systemu</os>
+        <dvd>Blu-Ray</dvd>
+    </Laptop>
+    <Laptop id="9">
+        <name>Samsung</name>
+        <screen>
+            <displaySize>13"</displaySize>
+            <resolution>1366x768</resolution>
+            <screenType>matowa</screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i7</cpu>
+            <freq>2800</freq>
+        </processor>
+        <ram>12GB</ram>
+        <space>24GB</space>
+        <discType>HDD</discType>
+        <gpu>NVIDIA GeForce GTX 1050</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os>Windows 10 Home</os>
+        <dvd>brak</dvd>
+    </Laptop>
+    <Laptop id="10">
+        <name>Sony</name>
+        <screen>
+            <displaySize>16"</displaySize>
+            <resolution></resolution>
+            <screenType>blyszczaca</screenType>
+        </screen>
+        <touchpad>tak</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i7</cpu>
+            <freq>2800</freq>
+        </processor>
+        <ram>8GB</ram>
+        <space></space>
+        <discType></discType>
+        <gpu>AMD Radeon Pro 455</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os>Windows 7 Profesional</os>
+        <dvd>DVD</dvd>
+    </Laptop>
+    <Laptop id="11">
+        <name>Samsung</name>
+        <screen>
+            <displaySize>12"</displaySize>
+            <resolution>1280x800</resolution>
+            <screenType>matowa</screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores></cores>
+            <cpu>intel i7</cpu>
+            <freq>2120</freq>
+        </processor>
+        <ram></ram>
+        <space></space>
+        <discType></discType>
+        <gpu>intel HD Graphics 4000</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os></os>
+        <dvd>brak</dvd>
+    </Laptop>
+    <Laptop id="12">
+        <name>Samsung</name>
+        <screen>
+            <displaySize>14"</displaySize>
+            <resolution>1600x900</resolution>
+            <screenType>matowa</screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores></cores>
+            <cpu>intel i5</cpu>
+            <freq></freq>
+        </processor>
+        <ram></ram>
+        <space></space>
+        <discType>SSD</discType>
+        <gpu>intel HD Graphics 5000</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os>Windows 10 Home</os>
+        <dvd>brak</dvd>
+    </Laptop>
+    <Laptop id="13">
+        <name>Fujitsu</name>
+        <screen>
+            <displaySize>15"</displaySize>
+            <resolution>1920x1080</resolution>
+            <screenType>blyszczaca</screenType>
+        </screen>
+        <touchpad>tak</touchpad>
+        <processor>
+            <cores>8</cores>
+            <cpu>intel i7</cpu>
+            <freq>2800</freq>
+        </processor>
+        <ram>24GB</ram>
+        <space>500GB</space>
+        <discType>HDD</discType>
+        <gpu>intel HD Graphics 520</gpu>
+        <gpuRam></gpuRam>
+        <os>brak systemu</os>
+        <dvd>Blu-Ray</dvd>
+    </Laptop>
+    <Laptop id="14">
+        <name>Huawei</name>
+        <screen>
+            <displaySize>13"</displaySize>
+            <resolution>1366x768</resolution>
+            <screenType>matowa</screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i7</cpu>
+            <freq>3000</freq>
+        </processor>
+        <ram></ram>
+        <space>24GB</space>
+        <discType>HDD</discType>
+        <gpu>NVIDIA GeForce GTX 1050</gpu>
+        <gpuRam></gpuRam>
+        <os>Windows 10 Home</os>
+        <dvd>brak</dvd>
+    </Laptop>
+    <Laptop id="15">
+        <name>MSI</name>
+        <screen>
+            <displaySize>17"</displaySize>
+            <resolution>1600x900</resolution>
+            <screenType>blyszczaca</screenType>
+        </screen>
+        <touchpad>tak</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i7</cpu>
+            <freq>9999</freq>
+        </processor>
+        <ram>8GB</ram>
+        <space>60GB</space>
+        <discType>SSD</discType>
+        <gpu>AMD Radeon Pro 455</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os>Windows 7 Profesional</os>
+        <dvd></dvd>
+    </Laptop>
+    <Laptop id="16">
+        <name>Huawei</name>
+        <screen>
+            <displaySize>14"</displaySize>
+            <resolution></resolution>
+            <screenType>matowa</screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i7</cpu>
+            <freq>2200</freq>
+        </processor>
+        <ram>8GB</ram>
+        <space>16GB</space>
+        <discType>HDD</discType>
+        <gpu>NVIDIA GeForce GTX 1080</gpu>
+        <gpuRam></gpuRam>
+        <os></os>
+        <dvd>brak</dvd>
+    </Laptop>
+    <Laptop id="17">
+        <name>MSI</name>
+        <screen>
+            <displaySize>17"</displaySize>
+            <resolution>1600x900</resolution>
+            <screenType>blyszczaca</screenType>
+        </screen>
+        <touchpad>tak</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i7</cpu>
+            <freq>3300</freq>
+        </processor>
+        <ram>8GB</ram>
+        <space>60GB</space>
+        <discType>SSD</discType>
+        <gpu>AMD Radeon Pro 455</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os></os>
+        <dvd></dvd>
+    </Laptop>
+    <Laptop id="18">
+        <name>Asus</name>
+        <screen>
+            <displaySize></displaySize>
+            <resolution>1600x900</resolution>
+            <screenType>blyszczaca</screenType>
+        </screen>
+        <touchpad>tak</touchpad>
+        <processor>
+            <cores>2</cores>
+            <cpu>intel i5</cpu>
+            <freq>3200</freq>
+        </processor>
+        <ram>16GB</ram>
+        <space>320GB</space>
+        <discType>HDD</discType>
+        <gpu></gpu>
+        <gpuRam></gpuRam>
+        <os>Windows 7 Home</os>
+        <dvd>brak</dvd>
+    </Laptop>
+    <Laptop id="19">
+        <name>Asus</name>
+        <screen>
+            <displaySize>14"</displaySize>
+            <resolution>1600x900</resolution>
+            <screenType>matowa</screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i5</cpu>
+            <freq>2800</freq>
+        </processor>
+        <ram></ram>
+        <space>120GB</space>
+        <discType>SSD</discType>
+        <gpu>intel HD Graphics 5000</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os>Windows 10 Profesional</os>
+        <dvd></dvd>
+    </Laptop>
+    <Laptop id="20">
+        <name>Fujitsu</name>
+        <screen>
+            <displaySize>14"</displaySize>
+            <resolution>1280x800</resolution>
+            <screenType>blyszczaca</screenType>
+        </screen>
+        <touchpad>tak</touchpad>
+        <processor>
+            <cores>8</cores>
+            <cpu>intel i7</cpu>
+            <freq>2800</freq>
+        </processor>
+        <ram>24GB</ram>
+        <space>500GB</space>
+        <discType>HDD</discType>
+        <gpu>intel HD Graphics 520</gpu>
+        <gpuRam></gpuRam>
+        <os>brak systemu</os>
+        <dvd>Blu-Ray</dvd>
+    </Laptop>
+    <Laptop id="21">
+        <name>Samsung</name>
+        <screen>
+            <displaySize>12"</displaySize>
+            <resolution>1600x900</resolution>
+            <screenType></screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i5</cpu>
+            <freq>2800</freq>
+        </processor>
+        <ram>12GB</ram>
+        <space>24GB</space>
+        <discType>HDD</discType>
+        <gpu>NVIDIA GeForce GTX 1050</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os>Windows 8.1 Home</os>
+        <dvd>brak</dvd>
+    </Laptop>
+    <Laptop id="22">
+        <name>Sony</name>
+        <screen>
+            <displaySize>11"</displaySize>
+            <resolution></resolution>
+            <screenType>blyszczaca</screenType>
+        </screen>
+        <touchpad>tak</touchpad>
+        <processor>
+            <cores>4</cores>
+            <cpu>intel i7</cpu>
+            <freq>2800</freq>
+        </processor>
+        <ram>8GB</ram>
+        <space></space>
+        <discType></discType>
+        <gpu>AMD Radeon Pro 455</gpu>
+        <gpuRam>1GB</gpuRam>
+        <os>Windows 7 Profesional</os>
+        <dvd>brak</dvd>
+    </Laptop>
+    <Laptop id="23">
+        <name>Samsung</name>
+        <screen>
+            <displaySize>13"</displaySize>
+            <resolution>1366x768</resolution>
+            <screenType></screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores></cores>
+            <cpu>intel i5</cpu>
+            <freq>2120</freq>
+        </processor>
+        <ram></ram>
+        <space></space>
+        <discType></discType>
+        <gpu>intel HD Graphics 4000</gpu>
+        <gpuRam>2GB</gpuRam>
+        <os></os>
+        <dvd>DVD</dvd>
+    </Laptop>
+    <Laptop id="24">
+        <name>Samsung</name>
+        <screen>
+            <displaySize>15"</displaySize>
+            <resolution>1920x1080</resolution>
+            <screenType>matowa</screenType>
+        </screen>
+        <touchpad>nie</touchpad>
+        <processor>
+            <cores></cores>
+            <cpu>intel i9</cpu>
+            <freq></freq>
+        </processor>
+        <ram></ram>
+        <space></space>
+        <discType>SSD</discType>
+        <gpu>intel HD Graphics 4000</gpu>
+        <gpuRam>2GB</gpuRam>
+        <os>Windows 10 Profesional</os>
+        <dvd>Blu-Ray</dvd>
+    </Laptop>
+</Laptops>

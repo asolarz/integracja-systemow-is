@@ -2,10 +2,7 @@ package is;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -23,40 +20,40 @@ public class LaptopSpecification {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute
-    Long id;
-    String name;
-    String displaySize;
-    String resolution;
-    String screenType;
-    String touchpad;
-    String cpu;
-    String cores;
-    String freq;
-    String ram;
-    String space;
-    String discType;
-    String gpu;
-    String gpuRam;
-    String os;
-    String dvd;
+    private Long id;
+    private String name;
+    @Embedded
+    private Screen screen;
+    private String touchpad;
+    @Embedded
+    private Processor processor;
+    private String ram;
+    private String space;
+    private String discType;
+    private String gpu;
+    private String gpuRam;
+    private String os;
+    private String dvd;
 
 
     String toSemiColonSeparatedSpec() {
-        return name + ";" +
-                displaySize + ";" +
-                resolution + ";" +
-                screenType + ";" +
-                touchpad + ";" +
-                cpu + ";" +
-                cores + ";" +
-                freq + ";" +
-                ram + ";" +
-                space + ";" +
-                discType + ";" +
-                gpu + ";" +
-                gpuRam + ";" +
-                os + ";" +
-                dvd + ";\n"
+        return
+                id + ";" +
+                        name + ";" +
+                        screen.getDisplaySize() + ";" +
+                        screen.getResolution() + ";" +
+                        screen.getScreenType() + ";" +
+                        touchpad + ";" +
+                        processor.cpu + ";" +
+                        processor.cores + ";" +
+                        processor.freq + ";" +
+                        ram + ";" +
+                        space + ";" +
+                        discType + ";" +
+                        gpu + ";" +
+                        gpuRam + ";" +
+                        os + ";" +
+                        dvd + ";\n"
                 ;
     }
 
@@ -64,13 +61,13 @@ public class LaptopSpecification {
     public String toString() {
         return
                 name + "\t" + "\t" +
-                        displaySize + "\t" + "\t" +
-                        resolution + "\t" + "\t" +
-                        screenType + "\t" + "\t" +
+                        screen.getDisplaySize() + "\t" + "\t" +
+                        screen.getResolution() + "\t" + "\t" +
+                        screen.getScreenType() + "\t" + "\t" +
                         touchpad + "\t" + "\t" +
-                        cpu + "\t" + "\t" +
-                        cores + "\t" + "\t" +
-                        freq + "\t" + "\t" +
+                        processor.getCpu() + "\t" + "\t" +
+                        processor.getCores() + "\t" + "\t" +
+                        processor.getFreq() + "\t" + "\t" +
                         ram + "\t" + "\t" +
                         space + "\t" + "\t" +
                         discType + "\t" + "\t" +
@@ -85,13 +82,17 @@ public class LaptopSpecification {
         return LaptopSpecification.builder()
                 .id(Long.valueOf((split[0])))
                 .name((split[1]))
-                .displaySize((split[2]))
-                .resolution((split[3]))
-                .screenType((split[4]))
+                .screen(Screen.builder()
+                        .displaySize((split[2]))
+                        .resolution((split[3]))
+                        .screenType((split[4]))
+                        .build())
                 .touchpad((split[5]))
-                .cpu((split[6]))
-                .cores((split[7]))
-                .freq((split[8]))
+                .processor(Processor.builder()
+                        .cpu((split[6]))
+                        .cores((split[7]))
+                        .freq((split[8]))
+                        .build())
                 .ram((split[9]))
                 .space((split[10]))
                 .discType((split[11]))
@@ -100,5 +101,28 @@ public class LaptopSpecification {
                 .os((split[14]))
                 .dvd((split[15]))
                 .build();
+    }
+
+    LaptopSpecificationResponse toResponse() {
+        return LaptopSpecificationResponse.builder()
+                .id(id)
+                .name(name)
+                .displaySize(screen.getDisplaySize())
+                .resolution(screen.getResolution())
+                .screenType(screen.getScreenType())
+                .touchpad(touchpad)
+                .cpu(processor.getCpu())
+                .cores(processor.getCores())
+                .freq(processor.getFreq())
+                .ram(ram)
+                .space(space)
+                .discType(discType)
+                .gpu(gpu)
+                .gpuRam(gpuRam)
+                .os(os)
+                .dvd(dvd)
+                .build();
+
+
     }
 }
