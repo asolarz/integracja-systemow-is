@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -64,5 +65,15 @@ class LaptopSpecificationService {
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         File file = new File("katalog.xml");
         marshaller.marshal(laptopSpecificationCollection, file);
+    }
+
+    List<LaptopSpecificationResponse> xmlList() throws JAXBException {
+
+        JAXBContext jaxbContext = JAXBContext.newInstance(LaptopSpecificationCollection.class);
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        File file = new File("katalog.xml");
+        LaptopSpecificationCollection laptopSpecificationCollection =
+                (LaptopSpecificationCollection) unmarshaller.unmarshal(file);
+        return laptopSpecificationCollection.toResponse();
     }
 }

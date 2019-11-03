@@ -25,6 +25,11 @@ public class LaptopController {
         return laptopSpecificationService.databaseList();
     }
 
+    @GetMapping("/xml")
+    List<LaptopSpecificationResponse> xmlList() throws JAXBException {
+        return laptopSpecificationService.xmlList();
+    }
+
     @PostMapping("/file")
     void saveToFile(@RequestBody List<String[]> laptopSpecifications) {
         laptopSpecificationService.saveToFile(laptopSpecifications);

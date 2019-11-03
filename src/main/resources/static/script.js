@@ -88,15 +88,11 @@ function readTable() {
 
 }
 
-$(function () {
-    $(".row td.column").on("click", function () {
-        if ($(this).parent().children('td.active').length > 0) {
-            $(this).siblings().removeClass('active');
-        }
-        $(this).addClass('active')
-    })
-});
-
 function changeColor(obj) {
     obj.style.backgroundColor = '#D9534F';
+}
+
+function readFromXml(){
+    $.get("http://" + window.location.host + "/laptops/xml", specificationTable);
+
 }
