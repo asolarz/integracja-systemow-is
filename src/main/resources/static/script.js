@@ -9,7 +9,6 @@ function specificationTable(laptopSpecificationList) {
     for (var index in laptopSpecificationList) {
         var currentSpec = laptopSpecificationList[index];
         text += "<tr>";
-        console.log(currentSpec);
         for (var propIndex in currentSpec) {
             if (propIndex == 'id') {
                 text += "<td class='d-none'>" + currentSpec[propIndex] + "</td>";
@@ -18,7 +17,7 @@ function specificationTable(laptopSpecificationList) {
             if (currentSpec[propIndex] == null) {
                 text += "<td contenteditable='true'>" + "brak" + "</td>";
             } else {
-                text += "<td contenteditable='true'>" + currentSpec[propIndex] + "</td>";
+                text += "<td onclick='changeColor(this)' contenteditable='true'>" + currentSpec[propIndex] + "</td>";
             }
         }
         text += "</tr>";
@@ -43,7 +42,6 @@ function saveToFile() {
 }
 
 function saveToDatabase() {
-    console.log("save DB")
     var data = JSON.stringify(readTable());
     $.ajax({
         type: "POST",
@@ -73,7 +71,27 @@ function readTable() {
         laptop = [];
 
     }
-    console.log(laptop);
     return laptopArray;
 
+}
+
+$(function () {
+    $(".row td.column").on("click", function () {
+        if ($(this).parent().children('td.active').length > 0) {
+            $(this).siblings().removeClass('active');
+        }
+        $(this).addClass('active')
+    })
+});
+
+/*
+$('laptop-spec').observe('click', function(event) {
+    var clickedCell = event.findElement('td');
+    if (clickedCell) {
+        clickedCell.setStyle({ background: '#dfd' });
+    }
+});*/
+
+function changeColor(obj) {
+    obj.style.backgroundColor = '#D9534F';
 }
