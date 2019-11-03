@@ -3,6 +3,10 @@ package is;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +17,7 @@ import java.util.stream.Collectors;
 class LaptopSpecificationService {
 
     private final LaptopSpecificationRepository laptopSpecificationRepository;
+
 
     List<LaptopSpecification> databaseList() {
         return laptopSpecificationRepository.findAllByOrderByIdAsc();
@@ -48,4 +53,13 @@ class LaptopSpecificationService {
         return specifications;
     }
 
+    void saveToXml(List<String[]> laptopSpecifications) throws JAXBException {
+        LaptopSpecificationCollection laptopSpecificationCollection =
+                new LaptopSpecificationCollection(getLaptopSpecifications(laptopSpecifications));
+        JAXBContext jaxbContext = JAXBContext.newInstance(LaptopSpecificationCollection.class);
+        Marshaller marshaller = jaxbContext.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        File file = new File("katalog.xml");
+        marshaller.marshal(laptopSpecificationCollection, file);
+    }
 }

@@ -53,6 +53,19 @@ function saveToDatabase() {
     });
 }
 
+function saveToXml() {
+    var data = JSON.stringify(readTable());
+    $.ajax({
+        type: "POST",
+        url: "http://" + window.location.host +
+            "/laptops/xml",
+        data: data,
+        dataType: "json",
+        contentType: "application/json"
+    });
+}
+
+
 function readFromDatabase() {
     $.get("http://" + window.location.host + "/laptops/database", specificationTable);
 }
@@ -83,14 +96,6 @@ $(function () {
         $(this).addClass('active')
     })
 });
-
-/*
-$('laptop-spec').observe('click', function(event) {
-    var clickedCell = event.findElement('td');
-    if (clickedCell) {
-        clickedCell.setStyle({ background: '#dfd' });
-    }
-});*/
 
 function changeColor(obj) {
     obj.style.backgroundColor = '#D9534F';

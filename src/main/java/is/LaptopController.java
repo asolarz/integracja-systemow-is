@@ -4,10 +4,9 @@ package is;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.bind.JAXBException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/laptops")
@@ -24,7 +23,6 @@ public class LaptopController {
     @GetMapping("/database")
     List<LaptopSpecification> databaseList() {
         return laptopSpecificationService.databaseList();
-
     }
 
     @PostMapping("/file")
@@ -34,6 +32,10 @@ public class LaptopController {
     @PostMapping("/database")
     void saveToDatabase(@RequestBody List<String[]> laptopSpecifications) {
        laptopSpecificationService.saveToDatabase(laptopSpecifications);
+    }
+@PostMapping("/xml")
+    void saveToXml(@RequestBody List<String[]> laptopSpecifications) throws  JAXBException {
+       laptopSpecificationService.saveToXml(laptopSpecifications);
     }
 
 }
