@@ -44,9 +44,9 @@ public class LaptopSpecification {
                         screen.getResolution() + ";" +
                         screen.getScreenType() + ";" +
                         touchpad + ";" +
-                        processor.cpu + ";" +
-                        processor.cores + ";" +
-                        processor.freq + ";" +
+                        processor.getCpu() + ";" +
+                        processor.getCores() + ";" +
+                        processor.getFreq() + ";" +
                         ram + ";" +
                         space + ";" +
                         discType + ";" +

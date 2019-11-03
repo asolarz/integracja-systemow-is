@@ -10,20 +10,20 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 public class LaptopSpecificationResponse {
-    Long id;
-    String name;
-    String displaySize;
-    String resolution;
-    String screenType;
-    String touchpad;
-    String cpu;
-    String cores;
-    String freq;
-    String ram;
-    String space;
-    String discType;
-    String gpu;
-    String gpuRam;
-    String os;
-    String dvd;
+    private Long id;
+    private String name;
+    private String displaySize;
+    private String resolution;
+    private String screenType;
+    private String touchpad;
+    private String cpu;
+    private String cores;
+    private String freq;
+    private String ram;
+    private String space;
+    private String discType;
+    private String gpu;
+    private String gpuRam;
+    private String os;
+    private String dvd;
 }

@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @XmlAccessorType(XmlAccessType.FIELD)
 class LaptopSpecificationCollection {
     @XmlElement(name = "Laptop")
-    List<LaptopSpecification> laptopSpecificationList;
+    private List<LaptopSpecification> laptopSpecificationList;
 
     public LaptopSpecificationCollection(List<LaptopSpecification> laptopSpecificationList) {
         this.laptopSpecificationList = laptopSpecificationList;
@@ -32,7 +32,6 @@ class LaptopSpecificationCollection {
     }
 
     void readFromFile(String filename) throws IOException {
-//        InputStream inputStream = is.LaptopSpecificationCollection.class.getResourceAsStream(filename);
         InputStream inputStream = new FileInputStream(new File(filename));
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         String line;

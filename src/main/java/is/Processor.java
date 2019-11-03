@@ -8,8 +8,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Processor {
-    String cpu;
-    String cores;
-    String freq;
+    private String cpu;
+    private String cores;
+    private String freq;
 
 }

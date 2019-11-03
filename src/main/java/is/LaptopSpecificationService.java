@@ -18,27 +18,29 @@ import java.util.stream.Collectors;
 class LaptopSpecificationService {
 
     private final LaptopSpecificationRepository laptopSpecificationRepository;
+    private final Configuration config;
 
 
     List<LaptopSpecificationResponse> databaseList() {
         return new LaptopSpecificationCollection(laptopSpecificationRepository
                 .findAllByOrderByIdAsc())
                 .toResponse();
-
     }
 
     List<LaptopSpecificationResponse> fileList() throws IOException {
         LaptopSpecificationCollection laptopSpecificationCollection = new LaptopSpecificationCollection();
-        laptopSpecificationCollection.readFromFile("katalog.txt");
+        laptopSpecificationCollection.readFromFile(config.getTextFilename());
         return laptopSpecificationCollection.toResponse();
     }
 
     void saveToFile(List<String[]> laptopSpecifications) {
         List<LaptopSpecification> specifications = getLaptopSpecifications(laptopSpecifications);
-        FileWriter.exportToFile(specifications
+        String formattedData = specifications
                 .stream()
                 .map(LaptopSpecification::toSemiColonSeparatedSpec)
-                .collect(Collectors.joining("")));
+                .collect(Collectors.joining(""));
+
+        FileWriter.exportToFile(formattedData, config.getTextFilename());
     }
 
     void saveToDatabase(List<String[]> laptopSpecifications) {
@@ -46,6 +48,24 @@ class LaptopSpecificationService {
         laptopSpecificationRepository.saveAll(specifications);
 
     }
+
+    void saveToXml(List<String[]> laptopSpecifications) throws JAXBException {
+        LaptopSpecificationCollection laptopSpecificationCollection =
+                new LaptopSpecificationCollection(getLaptopSpecifications(laptopSpecifications));
+        JAXBContext jaxbContext = JAXBContext.newInstance(LaptopSpecificationCollection.class);
+        Marshaller marshaller = jaxbContext.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        marshaller.marshal(laptopSpecificationCollection, new File(config.getXmlFilename()));
+    }
+
+    List<LaptopSpecificationResponse> xmlList() throws JAXBException {
+        JAXBContext jaxbContext = JAXBContext.newInstance(LaptopSpecificationCollection.class);
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        LaptopSpecificationCollection laptopSpecificationCollection =
+                (LaptopSpecificationCollection) unmarshaller.unmarshal(new File(config.getXmlFilename()));
+        return laptopSpecificationCollection.toResponse();
+    }
+
 
     private List<LaptopSpecification> getLaptopSpecifications(List<String[]> laptopSpecifications) {
         List<LaptopSpecification> specifications = new ArrayList<>();
@@ -55,25 +75,5 @@ class LaptopSpecificationService {
             specifications.add(pc);
         }
         return specifications;
-    }
-
-    void saveToXml(List<String[]> laptopSpecifications) throws JAXBException {
-        LaptopSpecificationCollection laptopSpecificationCollection =
-                new LaptopSpecificationCollection(getLaptopSpecifications(laptopSpecifications));
-        JAXBContext jaxbContext = JAXBContext.newInstance(LaptopSpecificationCollection.class);
-        Marshaller marshaller = jaxbContext.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        File file = new File("katalog.xml");
-        marshaller.marshal(laptopSpecificationCollection, file);
-    }
-
-    List<LaptopSpecificationResponse> xmlList() throws JAXBException {
-
-        JAXBContext jaxbContext = JAXBContext.newInstance(LaptopSpecificationCollection.class);
-        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-        File file = new File("katalog.xml");
-        LaptopSpecificationCollection laptopSpecificationCollection =
-                (LaptopSpecificationCollection) unmarshaller.unmarshal(file);
-        return laptopSpecificationCollection.toResponse();
     }
 }
