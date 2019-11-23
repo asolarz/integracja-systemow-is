@@ -5,7 +5,7 @@
     <xs:element name="getProducerLaptopRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="name" type="xs:string"/>
+                <xs:element name="producer" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -13,7 +13,7 @@
     <xs:element name="getScreenTypeLaptopRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="name" type="xs:string"/>
+                <xs:element name="screenType" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -26,6 +26,24 @@
         </xs:complexType>
     </xs:element>
 
+
+    <xs:element name="ProducerList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producer" type="xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="ScreenTypeList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="screenType" type="xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:complexType name="LaptopSpecification">
         <xs:sequence>
             <xs:element name="id" type="xs:long"/>
@@ -34,7 +52,7 @@
             <xs:element name="touchpad" type="xs:string"/>
             <xs:element name="processor" type="tns:Processor"/>
             <xs:element name="ram" type="xs:string"/>
-            <xs:element name="spac" type="xs:string"/>
+            <xs:element name="space" type="xs:string"/>
             <xs:element name="discType" type="xs:string"/>
             <xs:element name="gpu" type="xs:string"/>
             <xs:element name="gpuRam" type="xs:string"/>

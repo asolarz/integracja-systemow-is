@@ -1,9 +1,7 @@
 package core.com.example;
 
-import com.example.LaptopSpecification;
 import core.is.LaptopSpecificationRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -12,6 +10,8 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import javax.jws.WebMethod;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Endpoint
 @AllArgsConstructor
@@ -21,23 +21,27 @@ public class LaptopEndpoint {
     private final LaptopSpecificationRepository laptopSpecificationRepository;
 
     @WebMethod
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getProducerLaptopRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "producers")
     @ResponsePayload
-    public LaptopResponse getProducer(@RequestPayload GetProducerLaptopRequest request) {
+    public ProducerList getProducers() {
 
-        LaptopResponse laptopResponse = new LaptopResponse();
-        String producer = request.name;
-        List<LaptopSpecification> response = new ArrayList<>();
-        laptopSpecificationRepository
-                .findAllByName(producer)
-                .stream()
-                .forEach(laptopSpecificationData -> response.add(laptopSpecificationData.toLaptopSpecification()));
-        laptopResponse.setLaptop(response);
-        return laptopResponse;
+        ProducerList producerList = new ProducerList();
+        Set<String> producers = laptopSpecificationRepository.findAll()
+                .stream().map(laptopSpecificationData -> laptopSpecificationData.getName()).collect(Collectors.toSet());
+        producerList.setProducer(new ArrayList<>(producers));
+        return producerList;
     }
+    @WebMethod
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "screenTypes")
+    @ResponsePayload
+    public ScreenTypeList getScreenTypes() {
 
-
-
+        ScreenTypeList screenTypeList = new ScreenTypeList();
+        Set<String> screenTypes = laptopSpecificationRepository.findAll()
+                .stream().map(laptopSpecificationData -> laptopSpecificationData.getScreen().getScreenType()).collect(Collectors.toSet());
+        screenTypeList.setScreenType(new ArrayList<>(screenTypes));
+        return screenTypeList;
+    }
 
 
 }

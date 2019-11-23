@@ -1,6 +1,6 @@
 package core.is;
 
-import com.example.LaptopSpecification;
+import core.com.example.LaptopSpecification;
 import lombok.*;
 
 import javax.persistence.*;

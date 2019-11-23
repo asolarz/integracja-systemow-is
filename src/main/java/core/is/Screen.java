@@ -13,8 +13,8 @@ public class Screen {
     private String resolution;
     private String screenType;
 
-    public com.example.Screen toScreen() {
-        com.example.Screen screen = new com.example.Screen();
+    public core.com.example.Screen toScreen() {
+        core.com.example.Screen screen = new core.com.example.Screen();
         screen.setDisplaySize(displaySize);
         screen.setResolution(resolution);
         screen.setScreenType(screenType);

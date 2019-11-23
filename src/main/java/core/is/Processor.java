@@ -12,8 +12,8 @@ public class Processor {
     private String cores;
     private String freq;
 
-    public com.example.Processor toCpu() {
-        com.example.Processor processor = new com.example.Processor();
+    public core.com.example.Processor toCpu() {
+        core.com.example.Processor processor = new core.com.example.Processor();
         processor.setCpu(cpu);
         processor.setCores(cores);
         processor.setFreq(freq);
