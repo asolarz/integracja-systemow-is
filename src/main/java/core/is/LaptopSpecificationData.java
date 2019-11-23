@@ -1,5 +1,6 @@
 package core.is;
 
+import com.example.LaptopSpecification;
 import lombok.*;
 
 import javax.persistence.*;
@@ -124,5 +125,27 @@ public class LaptopSpecificationData {
                 .build();
 
 
+    }
+
+
+    public LaptopSpecification toLaptopSpecification() {
+        LaptopSpecification laptopSpecification = new LaptopSpecification();
+        laptopSpecification.setId(id);
+        laptopSpecification.setName(name);
+        laptopSpecification.setId(id);
+        laptopSpecification.setName(name);
+        laptopSpecification.setScreen(screen.toScreen());
+        laptopSpecification.setTouchpad(touchpad);
+        laptopSpecification.setProcessor(processor.toCpu());
+        laptopSpecification.setRam(ram);
+//        laptopSpecification.setSpace(space);
+        laptopSpecification.setDiscType(discType);
+        laptopSpecification.setGpu(gpu);
+        laptopSpecification.setGpuRam(gpuRam);
+        laptopSpecification.setOs(os);
+        laptopSpecification.setDvd(dvd);
+
+
+        return laptopSpecification;
     }
 }

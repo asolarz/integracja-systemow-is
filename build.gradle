@@ -4,7 +4,7 @@ plugins {
     id 'java'
 }
 task genJaxb {
-    ext.sourcesDir = "${project.projectDir}/src/main/java/xs"
+    ext.sourcesDir = "${project.projectDir}/src/main/java/sdf"
     ext.classesDir =  "${buildDir}/classes/jaxb"
     ext.schema = "src/main/resources/laptop.wsd"
 

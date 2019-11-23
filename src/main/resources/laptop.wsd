@@ -13,7 +13,7 @@
     <xs:element name="getScreenTypeLaptopRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="name" type="xs:string" maxOccurs="unbounded"/>
+                <xs:element name="name" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -21,7 +21,7 @@
     <xs:element name="LaptopResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="laptop" type="tns:LaptopSpecification"/>
+                <xs:element name="laptop" type="tns:LaptopSpecification" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
