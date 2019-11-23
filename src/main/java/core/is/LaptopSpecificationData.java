@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class LaptopSpecification {
+public class LaptopSpecificationData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute
@@ -78,8 +78,8 @@ public class LaptopSpecification {
     }
 
 
-    public static LaptopSpecification getLaptopSpecification(String[] split) {
-        return LaptopSpecification.builder()
+    public static LaptopSpecificationData getLaptopSpecification(String[] split) {
+        return LaptopSpecificationData.builder()
                 .id(Long.valueOf((split[0])))
                 .name((split[1]))
                 .screen(Screen.builder()

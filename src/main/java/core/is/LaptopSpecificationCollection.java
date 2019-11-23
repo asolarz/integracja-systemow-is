@@ -14,18 +14,18 @@ import java.util.stream.Collectors;
 @XmlAccessorType(XmlAccessType.FIELD)
 class LaptopSpecificationCollection {
     @XmlElement(name = "Laptop")
-    private List<LaptopSpecification> laptopSpecificationList;
+    private List<LaptopSpecificationData> laptopSpecificationDataList;
 
-    public LaptopSpecificationCollection(List<LaptopSpecification> laptopSpecificationList) {
-        this.laptopSpecificationList = laptopSpecificationList;
+    public LaptopSpecificationCollection(List<LaptopSpecificationData> laptopSpecificationDataList) {
+        this.laptopSpecificationDataList = laptopSpecificationDataList;
     }
 
     public LaptopSpecificationCollection() {
-        laptopSpecificationList = new ArrayList<LaptopSpecification>();
+        laptopSpecificationDataList = new ArrayList<LaptopSpecificationData>();
     }
 
     void print() {
-        for (LaptopSpecification specification : laptopSpecificationList) {
+        for (LaptopSpecificationData specification : laptopSpecificationDataList) {
 
             System.out.println(specification.toString());
         }
@@ -37,23 +37,23 @@ class LaptopSpecificationCollection {
         String line;
         while ((line = bufferedReader.readLine()) != null) {
             String[] split = line.split(";", 17);
-            LaptopSpecification pc = LaptopSpecification.getLaptopSpecification(split);
-            laptopSpecificationList.add(pc);
+            LaptopSpecificationData pc = LaptopSpecificationData.getLaptopSpecification(split);
+            laptopSpecificationDataList.add(pc);
         }
     }
 
     List<LaptopSpecificationResponse> toResponse() {
-        return laptopSpecificationList
+        return laptopSpecificationDataList
                 .stream()
                 .map(ls -> ls.toResponse())
                 .collect(Collectors.toList());
     }
 
-    public List<LaptopSpecification> getLaptopSpecificationList() {
-        return laptopSpecificationList;
+    public List<LaptopSpecificationData> getLaptopSpecificationDataList() {
+        return laptopSpecificationDataList;
     }
 
-    public void setLaptopSpecificationList(List<LaptopSpecification> laptopSpecificationList) {
-        this.laptopSpecificationList = laptopSpecificationList;
+    public void setLaptopSpecificationDataList(List<LaptopSpecificationData> laptopSpecificationDataList) {
+        this.laptopSpecificationDataList = laptopSpecificationDataList;
     }
 }

@@ -34,17 +34,17 @@ class LaptopSpecificationService {
     }
 
     void saveToFile(List<String[]> laptopSpecifications) {
-        List<LaptopSpecification> specifications = getLaptopSpecifications(laptopSpecifications);
+        List<LaptopSpecificationData> specifications = getLaptopSpecifications(laptopSpecifications);
         String formattedData = specifications
                 .stream()
-                .map(LaptopSpecification::toSemiColonSeparatedSpec)
+                .map(LaptopSpecificationData::toSemiColonSeparatedSpec)
                 .collect(Collectors.joining(""));
 
         FileWriter.exportToFile(formattedData, config.getTextFilename());
     }
 
     void saveToDatabase(List<String[]> laptopSpecifications) {
-        List<LaptopSpecification> specifications = getLaptopSpecifications(laptopSpecifications);
+        List<LaptopSpecificationData> specifications = getLaptopSpecifications(laptopSpecifications);
         laptopSpecificationRepository.saveAll(specifications);
 
     }
@@ -67,11 +67,11 @@ class LaptopSpecificationService {
     }
 
 
-    private List<LaptopSpecification> getLaptopSpecifications(List<String[]> laptopSpecifications) {
-        List<LaptopSpecification> specifications = new ArrayList<>();
+    private List<LaptopSpecificationData> getLaptopSpecifications(List<String[]> laptopSpecifications) {
+        List<LaptopSpecificationData> specifications = new ArrayList<>();
         for (String[] line : laptopSpecifications
         ) {
-            LaptopSpecification pc = LaptopSpecification.getLaptopSpecification(line);
+            LaptopSpecificationData pc = LaptopSpecificationData.getLaptopSpecification(line);
             specifications.add(pc);
         }
         return specifications;

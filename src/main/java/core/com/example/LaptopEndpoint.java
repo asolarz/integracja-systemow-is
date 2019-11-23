@@ -18,7 +18,7 @@ public class LaptopEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "producerLaptopRequest")
     @ResponsePayload
-    public LaptopResponse getProducer(@RequestPayload GetProducerLaptopRequest_0020 request) {
+    public LaptopResponse getProducer(@RequestPayload GetProducerLaptopRequest request) {
 
         LaptopResponse response = new LaptopResponse();
         response.setLaptop(repo.findAll().stream().findFirst().get());

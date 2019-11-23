@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-interface LaptopSpecificationRepository extends JpaRepository<LaptopSpecification,Long> {
+interface LaptopSpecificationRepository extends JpaRepository<LaptopSpecificationData,Long> {
 
-    List<LaptopSpecification> findAllByOrderByIdAsc();
+    List<LaptopSpecificationData> findAllByOrderByIdAsc();
 }

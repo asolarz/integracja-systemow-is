@@ -2,14 +2,15 @@
            targetNamespace="example.com" elementFormDefault="qualified">
 
 
-    <xs:element name="getProducerLaptopRequest ">
+    <xs:element name="getProducerLaptopRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="name" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="getScreenTypeLaptopRequest ">
+
+    <xs:element name="getScreenTypeLaptopRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="name" type="xs:string" maxOccurs="unbounded"/>
