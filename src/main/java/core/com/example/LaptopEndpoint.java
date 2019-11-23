@@ -1,5 +1,6 @@
 package core.com.example;
 
+import core.is.LaptopSpecificationData;
 import core.is.LaptopSpecificationRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -31,6 +32,7 @@ public class LaptopEndpoint {
         producerList.setProducer(new ArrayList<>(producers));
         return producerList;
     }
+
     @WebMethod
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "screenTypes")
     @ResponsePayload
@@ -41,6 +43,29 @@ public class LaptopEndpoint {
                 .stream().map(laptopSpecificationData -> laptopSpecificationData.getScreen().getScreenType()).collect(Collectors.toSet());
         screenTypeList.setScreenType(new ArrayList<>(screenTypes));
         return screenTypeList;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getProducerLaptopRequest")
+    @ResponsePayload
+    public ProducerNumber producerNumber(@RequestPayload GetProducerLaptopRequest request) {
+        ProducerNumber producerNumber = new ProducerNumber();
+        int allByName = laptopSpecificationRepository.countAllByName(request.getProducer());
+        producerNumber.setProducerNumber(allByName);
+        return producerNumber;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getScreenTypeLaptopRequest")
+    @ResponsePayload
+    public LaptopResponse producerNumber(@RequestPayload GetScreenTypeLaptopRequest request) {
+        LaptopResponse laptopResponse = new LaptopResponse();
+        List<LaptopSpecification> collect = laptopSpecificationRepository
+                .findAllByScreen(request.getScreenType())
+                .stream()
+                .map(LaptopSpecificationData::toLaptopSpecification)
+                .collect(Collectors.toList());
+
+        laptopResponse.setLaptop(collect);
+        return laptopResponse;
     }
 
 

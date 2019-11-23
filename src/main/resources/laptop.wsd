@@ -44,6 +44,14 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="producerNumber">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producerNumber" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:complexType name="LaptopSpecification">
         <xs:sequence>
             <xs:element name="id" type="xs:long"/>
