@@ -1,0 +1,62 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="example.com"
+           targetNamespace="example.com" elementFormDefault="qualified">
+
+
+    <xs:element name="getProducerLaptopRequest ">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getScreenTypeLaptopRequest ">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="LaptopResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="laptop" type="tns:LaptopSpecification"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="LaptopSpecification">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="screen" type="tns:Screen"/>
+            <xs:element name="touchpad" type="xs:string"/>
+            <xs:element name="processor" type="tns:Processor"/>
+            <xs:element name="ram" type="xs:string"/>
+            <xs:element name="spac" type="xs:string"/>
+            <xs:element name="discType" type="xs:string"/>
+            <xs:element name="gpu" type="xs:string"/>
+            <xs:element name="gpuRam" type="xs:string"/>
+            <xs:element name="os" type="xs:string"/>
+            <xs:element name="dvd" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="Screen">
+        <xs:sequence>
+            <xs:element name="displaySize" type="xs:string"/>
+            <xs:element name="resolution" type="xs:string"/>
+            <xs:element name="screenType" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Processor">
+        <xs:sequence>
+            <xs:element name="cpu" type="xs:string"/>
+            <xs:element name="cores" type="xs:string"/>
+            <xs:element name="freq" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

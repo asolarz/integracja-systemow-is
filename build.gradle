@@ -3,13 +3,60 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
 }
+task genJaxb {
+    ext.sourcesDir = "${project.projectDir}/src/main/java/xs"
+    ext.classesDir =  "${buildDir}/classes/jaxb"
+    ext.schema = "src/main/resources/laptop.wsd"
+
+    outputs.dir classesDir
+
+    doLast() {
+        project.ant {
+            taskdef name: "xjc", classname: "com.sun.tools.xjc.XJCTask",
+                    classpath: configurations.jaxb.asPath
+            mkdir(dir: sourcesDir)
+            mkdir(dir: classesDir)
+
+            xjc(destdir: sourcesDir, schema: schema) {
+                arg(value: "-wsdl")
+                produces(dir: sourcesDir, includes: "**/*.java")
+            }
+
+            javac(destdir: classesDir, source: 1.8, target: 1.8, debug: true,
+                    debugLevel: "lines,vars,source",
+                    classpath: configurations.jaxb.asPath) {
+                src(path: sourcesDir)
+                include(name: "**/*.java")
+                include(name: "*.java")
+            }
+
+            copy(todir: classesDir) {
+                fileset(dir: sourcesDir, erroronmissingdir: false) {
+                    exclude(name: "**/*.java")
+                }
+            }
+        }
+    }
+}
+
 
 group 'lab1'
 version '1.0-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+configurations {
+    jaxb
+}
+
+bootJar {
+    baseName = 'gs-producing-web-service'
+    version =  '0.1.0'
+    from genJaxb.classesDir
 }
 
 dependencies {
@@ -21,7 +68,16 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
     runtimeOnly 'org.postgresql:postgresql'
+
+    compile("org.springframework.boot:spring-boot-starter-web-services")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile("wsdl4j:wsdl4j:1.6.1")
+    jaxb("org.glassfish.jaxb:jaxb-xjc:2.2.11")
+    compile(files(genJaxb.classesDir).builtBy(genJaxb))
+
+
 }
+
 
 test {
     useJUnitPlatform()

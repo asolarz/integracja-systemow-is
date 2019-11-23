@@ -3,7 +3,7 @@
   
   
   <property file="lab1.properties"/>
-  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- Uncomment the following property if no tests compilation core.is needed -->
   <!-- 
   <property name="skip.tests" value="true"/>
    -->
@@ -217,7 +217,7 @@
       <exclude name=""/>
     </fx:fileset>
     <fx:fileset id="all_" dir="${artifact.temp.output.}" includes="**/*.jar"/>
-    <fx:application id="_id" name="unnamed" mainClass="is.LaptopFrame" version="1"/>
+    <fx:application id="_id" name="unnamed" mainClass="core.LaptopFrame" version="1"/>
     <fx:jar destfile="${artifact.temp.output.}/">
       <fx:application refid="_id"/>
       <fileset dir="${artifact.temp.output.}" excludes="**/*.jar"/>
@@ -270,7 +270,7 @@
       <exclude name=""/>
     </fx:fileset>
     <fx:fileset id="all_" dir="${artifact.temp.output.2}" includes="**/*.jar"/>
-    <fx:application id="_id" name="unnamed2" mainClass="is.LaptopFrame"/>
+    <fx:application id="_id" name="unnamed2" mainClass="core.LaptopFrame"/>
     <fx:jar destfile="${artifact.temp.output.2}/">
       <fx:application refid="_id"/>
       <fileset dir="${artifact.temp.output.2}" excludes="**/*.jar"/>

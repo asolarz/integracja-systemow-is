@@ -1,4 +1,4 @@
-package is;
+package core.is;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;

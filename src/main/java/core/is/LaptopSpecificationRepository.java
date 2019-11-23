@@ -1,4 +1,4 @@
-package is;
+package core.is;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
