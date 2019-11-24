@@ -45,4 +45,9 @@ public class LaptopController {
         laptopSpecificationService.saveToXml(laptopSpecifications);
     }
 
+
+    @GetMapping("/producers")
+    List<String> producers() throws IOException {
+        return laptopSpecificationService.producers();
+    }
 }

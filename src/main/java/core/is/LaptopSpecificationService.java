@@ -7,11 +7,16 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.namespace.QName;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @Service
 @AllArgsConstructor
@@ -75,5 +80,18 @@ class LaptopSpecificationService {
             specifications.add(pc);
         }
         return specifications;
+    }
+
+    public List<String> producers() {
+        URL url = null;
+        try {
+            url  = new URL("http://localhost:8080/ws/laptops.wsdl");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        QName qName = new QName("example.com","producers");
+        javax.xml.ws.Service service = javax.xml.ws.Service.create(url,qName);
+//        service.getPort()
+        return Arrays.asList( new String[] { "Asus", "Acer", "Hp", "Lenovo" });
     }
 }

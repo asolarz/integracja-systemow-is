@@ -92,7 +92,18 @@ function changeColor(obj) {
     obj.style.backgroundColor = '#D9534F';
 }
 
-function readFromXml(){
+function readFromXml() {
     $.get("http://" + window.location.host + "/laptops/xml", specificationTable);
 
+}
+
+
+function producersList() {
+
+    $.get("http://" + window.location.host + "/laptops/producers", function (response) {
+        console.log(response)
+        for(var i = 0; i < response.length; i++) {
+            $('#producer-dropdown select').append('<option value='+i+'>'+response[i]+'</option>');
+        }
+    });
 }

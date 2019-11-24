@@ -10,7 +10,6 @@ package com.example;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="screenType" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="producerNumber" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +35,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "screenType"
+    "producerNumber"
 })
-@XmlRootElement(name = "getScreenTypeLaptopRequest")
-public class GetScreenTypeLaptopRequest {
+@XmlRootElement(name = "producerNumber")
+public class ProducerNumber {
 
-    @XmlElement(required = true)
-    protected String screenType;
+    protected int producerNumber;
 
     /**
-     * Gets the value of the screenType property.
+     * Gets the value of the producerNumber property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getScreenType() {
-        return screenType;
+    public int getProducerNumber() {
+        return producerNumber;
     }
 
     /**
-     * Sets the value of the screenType property.
+     * Sets the value of the producerNumber property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setScreenType(String value) {
-        this.screenType = value;
+    public void setProducerNumber(int value) {
+        this.producerNumber = value;
     }
 
 }
