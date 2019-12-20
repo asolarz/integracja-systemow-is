@@ -50,4 +50,15 @@ public class LaptopController {
     List<String> producers() throws IOException {
         return laptopSpecificationService.producers();
     }
+
+    @GetMapping
+    List<LaptopMetrics> list() {
+        return laptopSpecificationService.list();
+    }
+
+    @GetMapping("/details/{id}")
+    LaptopSpecificationResponse details(@PathVariable Long id) {
+        return laptopSpecificationService.details(id);
+    }
+
 }

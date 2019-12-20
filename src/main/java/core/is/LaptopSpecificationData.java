@@ -148,4 +148,8 @@ public class LaptopSpecificationData {
 
         return laptopSpecification;
     }
+
+    public LaptopMetrics toMetrics() {
+        return new LaptopMetrics(id, name);
+    }
 }

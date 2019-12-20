@@ -75,6 +75,8 @@ dependencies {
     compile("wsdl4j:wsdl4j:1.6.1")
     jaxb("org.glassfish.jaxb:jaxb-xjc:2.2.11")
     compile(files(genJaxb.classesDir).builtBy(genJaxb))
+    implementation 'org.springframework.ws:spring-ws-core'
+    compile(files(genJaxb.classesDir).builtBy(genJaxb))
 
 
 }

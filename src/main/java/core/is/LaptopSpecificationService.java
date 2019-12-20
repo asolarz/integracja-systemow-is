@@ -85,13 +85,21 @@ class LaptopSpecificationService {
     public List<String> producers() {
         URL url = null;
         try {
-            url  = new URL("http://localhost:8080/ws/laptops.wsdl");
+            url = new URL("http://localhost:8080/ws/laptops.wsdl");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        QName qName = new QName("example.com","producers");
-        javax.xml.ws.Service service = javax.xml.ws.Service.create(url,qName);
+        QName qName = new QName("example.com", "producers");
+        javax.xml.ws.Service service = javax.xml.ws.Service.create(url, qName);
 //        service.getPort()
-        return Arrays.asList( new String[] { "Asus", "Acer", "Hp", "Lenovo" });
+        return Arrays.asList(new String[]{"Asus", "Acer", "Hp", "Lenovo"});
+    }
+
+    List<LaptopMetrics> list() {
+        return laptopSpecificationRepository.findAll().stream().map(LaptopSpecificationData::toMetrics).collect(Collectors.toList());
+    }
+
+    LaptopSpecificationResponse details(Long id) {
+        return laptopSpecificationRepository.getOne(id).toResponse();
     }
 }

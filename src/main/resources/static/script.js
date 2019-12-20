@@ -98,12 +98,3 @@ function readFromXml() {
 }
 
 
-function producersList() {
-
-    $.get("http://" + window.location.host + "/laptops/producers", function (response) {
-        console.log(response)
-        for(var i = 0; i < response.length; i++) {
-            $('#producer-dropdown select').append('<option value='+i+'>'+response[i]+'</option>');
-        }
-    });
-}
